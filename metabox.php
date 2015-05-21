@@ -24,9 +24,11 @@ class MetaBox
 		);
 	}
 
-	static function display_external_url_metabox()
+	static function display_external_url_metabox($post, $metabox)
 	{
 		wp_nonce_field();
-		echo '<input type="text" name="external_url" class="widefat">';
+		$value = get_post_meta( $post->ID, 'external_url', true );
+
+		echo '<input type="text" name="external_url" class="widefat" value="'. esc_attr($value) .'">';
 	}
 }
