@@ -19,4 +19,26 @@ class MetaBoxTest extends PHPUnit_Framework_TestCase
 			array('MetaBox', 'add_meta_boxes')
 		);
 	}
+
+	/**
+	 * @dataProvider postTypeProvider
+	 */
+	function testCallsTheAddMetaBoxFunction($post_type)
+	{
+		global $wp_meta_boxes;
+		$post = new StdClass();
+		$post->post_type = $post_type;
+
+		MetaBox::add_meta_boxes($post);
+
+		$this->assertArrayHasKey($post_type, $wp_meta_boxes);	
+	}
+
+	function postTypeProvider()
+	{
+		return array(
+			array('post'),
+			array('page'),
+		);
+	}
 }
