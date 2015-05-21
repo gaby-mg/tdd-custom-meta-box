@@ -23,4 +23,9 @@ class MetaBox
 			$post->post_type
 		);
 	}
+
+	static function display_external_url_metabox()
+	{
+		wp_nonce_field();
+	}
 }
