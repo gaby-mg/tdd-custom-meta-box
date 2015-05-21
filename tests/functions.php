@@ -11,3 +11,8 @@ function add_meta_box($id, $title, $callback, $screen)
 	global $wp_meta_boxes;
 	$wp_meta_boxes[$screen] = $callback;
 }
+
+function wp_nonce_field()
+{
+	echo '<input type="hidden">';
+}
