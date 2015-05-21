@@ -27,5 +27,6 @@ class MetaBox
 	static function display_external_url_metabox()
 	{
 		wp_nonce_field();
+		echo '<input type="text" name="external_url" class="widefat">';
 	}
 }
