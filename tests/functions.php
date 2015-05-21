@@ -16,3 +16,8 @@ function wp_nonce_field()
 {
 	echo '<input type="hidden">';
 }
+
+function get_post_meta($post_id, $key, $single)
+{
+	return '';
+}
