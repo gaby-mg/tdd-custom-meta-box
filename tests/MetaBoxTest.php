@@ -1,4 +1,5 @@
 <?php
+require 'functions.php';
 require 'metabox.php';
 
 class MetaBoxTest extends PHPUnit_Framework_TestCase
