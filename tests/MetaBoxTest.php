@@ -41,4 +41,10 @@ class MetaBoxTest extends PHPUnit_Framework_TestCase
 			array('page'),
 		);
 	}
+
+	function testDisplaysMetaBox()
+	{
+		$this->expectOutputRegex('/<input type="hidden"/');
+		MetaBox::display_external_url_metabox();
+	}
 }
