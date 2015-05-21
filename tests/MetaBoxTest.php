@@ -44,7 +44,10 @@ class MetaBoxTest extends PHPUnit_Framework_TestCase
 
 	function testDisplaysMetaBox()
 	{
-		$this->expectOutputRegex('/<input type="hidden".*<input type="text" name="external_url" class="widefat"/');
-		MetaBox::display_external_url_metabox();
+		$post = new StdClass();
+		$metabox = array();
+
+		$this->expectOutputRegex('/<input type="text" name="external_url" class="widefat" value="">/');
+		MetaBox::display_external_url_metabox($post, $metabox);	
 	}
 }
