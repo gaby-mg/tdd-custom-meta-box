@@ -37,5 +37,9 @@ class MetaBox
 		if (! isset($_POST['_wpnonce'])) {
 			return false;
 		}
+
+		if ( ! wp_verify_nonce( $_POST['_wpnonce'] )) {
+			return false;
+		}
 	}
 }
