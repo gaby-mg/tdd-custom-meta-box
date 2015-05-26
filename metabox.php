@@ -31,4 +31,9 @@ class MetaBox
 
 		echo '<input type="text" name="external_url" class="widefat" value="'. esc_attr($value) .'">';
 	}
+
+	static function save_meta_box_data()
+	{
+		
+	}
 }
