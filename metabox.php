@@ -34,6 +34,8 @@ class MetaBox
 
 	static function save_meta_box_data()
 	{
-		
+		if (! isset($_POST['_wpnonce'])) {
+			return false;
+		}
 	}
 }
