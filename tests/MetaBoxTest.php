@@ -51,4 +51,28 @@ class MetaBoxTest extends PHPUnit_Framework_TestCase
 		$this->expectOutputRegex('/<input type="text" name="external_url" class="widefat" value="">/');
 		MetaBox::display_external_url_metabox($post, $metabox);	
 	}
+
+	/**
+	 * @dataProvider postDataProvider
+	 */
+	function testReturnsFalseIfNonceNotValid($post_data)
+	{
+		$_POST = $post_data;
+		$this->assertFalse(MetaBox::save_meta_box_data());
+	}
+
+	function postDataProvider()
+	{
+	    return array(
+	        array(
+	            array('foo'    => 'bar'),
+	        ),
+	        array(
+	            array(
+	                '_wpnonce' => 'baz',
+	                'foo'      => 'bar',
+	            )
+	        )
+	    );
+	}
 }
