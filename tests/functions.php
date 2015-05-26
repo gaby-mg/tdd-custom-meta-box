@@ -21,3 +21,8 @@ function get_post_meta($post_id, $key, $single)
 {
 	return '';
 }
+
+function esc_attr($string)
+{	
+	return $string;
+}
